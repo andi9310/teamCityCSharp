@@ -1,4 +1,9 @@
 ﻿Posts:
   test-post:
     Author: test
-    Content: test, test, test...
+    Content: test, test, test...
+Comments:
+  test-comment:
+    Author: andrzej
+    Content: slabe
+    PostId: 0

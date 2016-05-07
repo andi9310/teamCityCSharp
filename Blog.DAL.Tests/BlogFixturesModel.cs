@@ -10,5 +10,7 @@ namespace Blog.DAL.Tests
     public class BlogFixturesModel
     {
         public FixtureTable<Post> Posts { get; set; }
+        public FixtureTable<Comment> Comments { get; set; }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Blog.DAL.Model
 {
@@ -10,5 +11,8 @@ namespace Blog.DAL.Model
         public string Content { get; set; }
 
         public string Author { get; set; }
+
+        public ICollection<Comment> Comments { get; set; }
+
     }
 }

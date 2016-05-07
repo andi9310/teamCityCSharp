@@ -54,5 +54,20 @@ namespace Blog.DAL.Tests
             // act
             repository.AddPost("sylwester", null);
         }
+        [TestMethod]
+        public void AddComment_GetCommentsForPost_ReturnTwoComments()
+        {
+            // arrange
+            var context = new BlogContext();
+            context.Database.CreateIfNotExists();
+            var repository = new BlogRepository();
+            // act
+            var firstPostId = repository.GetAllPosts().First().Id;
+            repository.AddComment("wladek", "dobry post", firstPostId);
+            var result = repository.GetCommentsForPost(firstPostId);
+            // assert
+            Assert.AreEqual(2, result.Count());
+            // test comment
+        }
     }
 }
