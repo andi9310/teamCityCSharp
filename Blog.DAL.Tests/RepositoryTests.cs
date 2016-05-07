@@ -8,11 +8,12 @@ using Blog.DAL.Model;
 using Blog.DAL.Repository;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
+using TDD.DbTestHelpers.Core;
 
 namespace Blog.DAL.Tests
 {
     [TestClass]
-    public class RepositoryTests
+    public class RepositoryTests: DbBaseTest<BlogFixtures>
     {
         [TestMethod]
         public void GetAllPost_OnePostInDb_ReturnOnePost()
