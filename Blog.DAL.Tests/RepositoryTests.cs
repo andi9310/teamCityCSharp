@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Data.Entity.Validation;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -27,6 +28,31 @@ namespace Blog.DAL.Tests
             // assert
             Assert.AreEqual(1, result.Count());
             // test comment
+        }
+        [TestMethod]
+        public void AddPost_OnePostInDb_GetAllPosts_ReturnTwoPosts()
+        {
+            // arrange
+            var context = new BlogContext();
+            context.Database.CreateIfNotExists();
+            var repository = new BlogRepository();
+            // act
+            repository.AddPost("sylwester", "sample text");
+            var result = repository.GetAllPosts();
+            // assert
+            Assert.AreEqual(2, result.Count());
+            // test comment
+        }
+        [TestMethod]
+        [ExpectedException(typeof(DbEntityValidationException))]
+        public void AddPost_NoContent_Error()
+        {
+            // arrange
+            var context = new BlogContext();
+            context.Database.CreateIfNotExists();
+            var repository = new BlogRepository();
+            // act
+            repository.AddPost("sylwester", null);
         }
     }
 }

@@ -18,5 +18,10 @@ namespace Blog.DAL.Repository
         {
             return _context.Posts;
         }
+        public void AddPost(string author, string content)
+        {
+            _context.Posts.Add(new Post { Author = author, Content = content });
+            _context.SaveChanges();
+        } 
     }
 }

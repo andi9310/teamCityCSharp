@@ -6,7 +6,7 @@ namespace Blog.DAL.Model
     {
         [Key]
         public long Id { get; set; }
-
+        [Required]
         public string Content { get; set; }
 
         public string Author { get; set; }
